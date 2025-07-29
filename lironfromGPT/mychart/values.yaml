@@ -1,0 +1,13 @@
+replicaCount: 1
+
+image:
+  repository: flaskapp
+  tag: latest
+  pullPolicy: Never
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 5000
+  nodePort: 30001
+

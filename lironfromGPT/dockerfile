@@ -1,0 +1,21 @@
+# בסיס - תמונת Python רשמית
+FROM python:3.11-slim
+
+# הגדר תיקיית עבודה בקונטיינר
+WORKDIR /app
+
+# העתק את הקובץ עם התלויות
+COPY requirements.txt .
+
+# התקן את התלויות
+RUN pip install --no-cache-dir -r requirements.txt
+
+# העתק את שאר הקבצים (כולל app.py)
+COPY . .
+
+# פתח פורט 5000
+EXPOSE 5000
+
+# הפעלת האפליקציה עם gunicorn (לפרודקשן)
+#CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:app"]
+CMD ["python3", "main.py"]

@@ -1,13 +1,11 @@
 replicaCount: 1
 
 image:
-  repository: flaskapp
-  tag: latest
-  pullPolicy: Never
+  repository: 042195542712.dkr.ecr.us-east-2.amazonaws.com/dpa
+  tag: hamdanitest
+  pullPolicy: IfNotPresent
 
 service:
-  type: NodePort
   port: 80
   targetPort: 5000
-  nodePort: 30001
 
